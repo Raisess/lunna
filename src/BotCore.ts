@@ -3,7 +3,7 @@ import { Client } from "discord.js";
 import { ICommand, ICommandCallback, ICommandOptions } from "./interfaces/ICommand";
 import { ISpecialWord, ISpecialWordCallback } from "./interfaces/ISpecialWord";
 
-export default class Core {
+export default class BotCore {
 	private client: Client = new Client();
 	private prefix: string;
 	private token:  string;
