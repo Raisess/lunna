@@ -7,7 +7,7 @@ export default class Core {
 	// commands storage
 	private commands: Array<[string, Function]> = [];
 	// special messages storage
-	private messages: Array<[Array<string>, Function]> = [];
+	private specialWords: Array<[Array<string>, Function]> = [];
 
 	constructor(prefix: string = "!", token: string = "") {
 		this.prefix = prefix;
@@ -35,11 +35,12 @@ export default class Core {
 
 	// execute command callback
 	private onCommandExec(message: any): void {
-		const commandOnly: string = message.content.split(" ")[1].toLowerCase();
+		const commandOnly: string        = message.content.toLowerCase().split(" ")[1];
+		const commandArgs: Array<string> = message.content.toLowerCase().split(" ").slice(2);
 
 		for (const commandTuple of this.commands) {
 			if (commandOnly === commandTuple[0]) {
-				commandTuple[1](message, this.client);
+				commandTuple[1](message, commandArgs, this.client);
 				return;
 			}
 		}
@@ -56,10 +57,10 @@ export default class Core {
 	private onMessageIncludesExec(message: any): void {
 		const content: string = message.content.toLowerCase();
 
-		for (const messageTuple of this.messages) {
-			for (let i: number = 0; i < messageTuple[0].length; i++) {
-				if (content.includes(messageTuple[0][i])) {
-					messageTuple[1](message, this.client);
+		for (const specialWordsTuple of this.specialWords) {
+			for (let i: number = 0; i < specialWordsTuple[0].length; i++) {
+				if (content.includes(specialWordsTuple[0][i])) {
+					specialWordsTuple[1](message, this.client);
 					return;
 				}
 			}
@@ -70,7 +71,7 @@ export default class Core {
 
 	// store special messages
 	public onMessageIncludes(words: Array<string>, callback: Function): void {
-		this.messages.push([words.map((word: string) => word.toLowerCase()), callback]);
+		this.specialWords.push([words.map((word: string) => word.toLowerCase()), callback]);
 	}
 }
 
