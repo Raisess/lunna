@@ -1,6 +1,7 @@
 import { Client } from "discord.js";
 
 import { ICommand, ICommandCallback, ICommandOptions } from "./interfaces/ICommand";
+import { ISpecialWord, ISpecialWordCallback } from "./interfaces/ISpecialWord";
 
 export default class Core {
 	private client: Client = new Client();
@@ -9,7 +10,7 @@ export default class Core {
 	// commands storage
 	private commands: Array<ICommand> = [];
 	// special messages storage
-	private specialWords: Array<[Array<string>, Function]> = [];
+	private specialWords: Array<ISpecialWord> = [];
 
 	constructor(prefix: string = "!", token: string = "") {
 		this.prefix = prefix;
@@ -62,10 +63,10 @@ export default class Core {
 	private onMessageIncludesExec(message: any): void {
 		const content: string = message.content.toLowerCase();
 
-		for (const specialWordsTuple of this.specialWords) {
-			for (let i: number = 0; i < specialWordsTuple[0].length; i++) {
-				if (content.includes(specialWordsTuple[0][i])) {
-					specialWordsTuple[1](message, this.client);
+		for (const specialWord of this.specialWords) {
+			for (let i: number = 0; i < specialWord.words.length; i++) {
+				if (content.includes(specialWord.words[i])) {
+					specialWord.callback(message, this.client);
 					return;
 				}
 			}
@@ -75,8 +76,11 @@ export default class Core {
 	}
 
 	// store special messages
-	public onMessageIncludes(words: Array<string>, callback: Function): void {
-		this.specialWords.push([words.map((word: string) => word.toLowerCase()), callback]);
+	public onMessageIncludes(words: Array<string>, callback: ISpecialWordCallback): void {
+		this.specialWords.push({ 
+			words: words.map((word: string) => word.toLowerCase()),
+			callback
+		});
 	}
 }
 
