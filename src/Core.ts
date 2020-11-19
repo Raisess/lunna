@@ -1,14 +1,13 @@
 import { Client } from "discord.js";
 
-import { Command } from "./@types/Command";
-import { ICommandCallback, ICommandOptions } from "./interfaces/ICommand";
+import { ICommand, ICommandCallback, ICommandOptions } from "./interfaces/ICommand";
 
 export default class Core {
 	private client: Client = new Client();
 	private prefix: string;
 	private token:  string;
 	// commands storage
-	private commands: Array<Command> = [];
+	private commands: Array<ICommand> = [];
 	// special messages storage
 	private specialWords: Array<[Array<string>, Function]> = [];
 
@@ -41,10 +40,15 @@ export default class Core {
 		const commandOnly: string        = message.content.toLowerCase().split(" ")[1];
 		const commandArgs: Array<string> = message.content.toLowerCase().split(" ").slice(2);
 
-		for (const commandTuple of this.commands) {
-			if (commandOnly === commandTuple[0]) {
-				commandTuple[1](message, commandArgs, this.client);
-				return;
+		for (const command of this.commands) {
+			if (commandOnly === command.name) {
+				if (command.options && command.options.channel === message.channel.name) {
+					command.callback(message, commandArgs, this.client);
+					return;
+				} else if (!command.options || !command.options.channel) {
+					command.callback(message, commandArgs, this.client);
+					return;
+				}
 			}
 		}
 
@@ -53,7 +57,7 @@ export default class Core {
 
 	// store command
 	public onCommand(command: string, callback: ICommandCallback, options?: ICommandOptions): void {
-		this.commands.push([command.toLowerCase(), callback, options]);
+		this.commands.push({ name: command.toLowerCase(), callback, options });
 	}
 
 	// execute a special message callback
