@@ -7,7 +7,7 @@ export default class Core {
 	// commands storage
 	private commands: Array<[string, Function]> = [];
 	// special messages storage
-	private messages: Array<[string, Function]> = [];
+	private messages: Array<[Array<string>, Function]> = [];
 
 	constructor(prefix: string = "!", token: string = "") {
 		this.prefix = prefix;
@@ -26,7 +26,7 @@ export default class Core {
 			if (message.content.startsWith(this.prefix)){ 
 				this.onCommandExec(message);
 			} else {
-				this.onMessageExec(message);
+				this.onMessageIncludesExec(message);
 			}
 		});
 
@@ -52,23 +52,25 @@ export default class Core {
 		this.commands.push([command.toLowerCase(), callback]);
 	}
 
-	// execute message callback
-	private onMessageExec(message: any): void {
+	// execute a special message callback
+	private onMessageIncludesExec(message: any): void {
 		const content: string = message.content.toLowerCase();
 
 		for (const messageTuple of this.messages) {
-			if (content === messageTuple[0]) {
-				messageTuple[1](message, this.client);
-				return;
+			for (let i: number = 0; i < messageTuple[0].length; i++) {
+				if (content.includes(messageTuple[0][i])) {
+					messageTuple[1](message, this.client);
+					return;
+				}
 			}
 		}
 
 		return;
 	}
 
-	// store a special message
-	public onMessage(content: string, callback: Function): void {
-		this.messages.push([content.toLowerCase(), callback]);
+	// store special messages
+	public onMessageIncludes(words: Array<string>, callback: Function): void {
+		this.messages.push([words.map((word: string) => word.toLowerCase()), callback]);
 	}
 }
 
