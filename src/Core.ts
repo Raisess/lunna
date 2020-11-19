@@ -31,7 +31,7 @@ export default class Core {
 
 		for (const command of this.commands) {
 			if (commandOnly === command[0]) {
-				command[1](message);
+				command[1](message, this.client);
 				return;
 			}
 		}
