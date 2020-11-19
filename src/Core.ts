@@ -4,7 +4,7 @@ export default class Core {
 	private client: Client = new Client();
 	private prefix: string;
 	private token:  string;
-
+	// commands storage
 	private commands: Array<[string, Function]> = [];
 
 	constructor(prefix: string = "!", token: string = "") {
@@ -20,13 +20,15 @@ export default class Core {
 		this.client.on("message", (message: any): void => {
 			if (message.author.bot) return;
 
-			if (message.content.startsWith(this.prefix)) this.onMessage(message);
+			// check if is a command
+			if (message.content.startsWith(this.prefix)) this.onCommandExec(message);
 		});
 
 		this.client.login(this.token);
 	}
 
-	private onMessage(message: any): void {
+	// execute command callback
+	private onCommandExec(message: any): void {
 		const commandOnly: string = message.content.split(" ")[1].toLowerCase();
 
 		for (const command of this.commands) {
@@ -39,7 +41,8 @@ export default class Core {
 		return;
 	}
 
-	public command(command: string, callback: Function): void {
+	// store command
+	public onCommand(command: string, callback: Function): void {
 		this.commands.push([command.toLowerCase(), callback]);
 	}
 }
