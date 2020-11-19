@@ -1,8 +1,12 @@
-import { ICommandCallback, ICommandOptions } from "./interfaces/ICommand";
+import { ICommand } from "./interfaces/ICommand";
 
 import evalCommand from "./commands/eval";
 
-export const commands: Array<[string, ICommandCallback, ICommandOptions]> = [
-	["=>", evalCommand, { canUse: ["456557054237212682"] }]
+export const commands: Array<ICommand> = [
+	{
+		name:     "=>",
+		callback: evalCommand,
+		options:  { canUse: ["456557054237212682"] }
+	}
 ];
 
