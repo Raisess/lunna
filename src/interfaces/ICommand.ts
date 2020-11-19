@@ -11,6 +11,7 @@ export interface ICommandCallback {
 }
 
 export interface ICommandOptions {
-	channel:  string;
+	channel?: Array<string>;
+	canUse?:  Array<string>;
 }
 

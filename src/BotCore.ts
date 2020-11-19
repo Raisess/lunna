@@ -3,6 +3,9 @@ import { Client } from "discord.js";
 import { ICommand, ICommandCallback, ICommandOptions } from "./interfaces/ICommand";
 import { ISpecialWord, ISpecialWordCallback } from "./interfaces/ISpecialWord";
 
+import channelValidate from "./modules/channelValidate";
+import canUseValidate from "./modules/canUseValidate";
+
 export default class BotCore {
 	private client: Client = new Client();
 	private prefix: string;
@@ -41,10 +44,28 @@ export default class BotCore {
 
 		for (const command of this.commands) {
 			if (commandOnly === command.name) {
-				if (command.options && command.options.channel === message.channel.name) {
-					command.callback(message, commandArgs, this.client);
+				if (command.options) {
+					if (command.options.channel && command.options.canUse) {
+						if (channelValidate(message.channel.name, command.options.channel)) {
+							if (canUseValidate(message.author.id, command.options.canUse)) {
+								command.callback(message, commandArgs, this.client);
+								return;
+							}
+						}
+					} else if (command.options.channel) {
+						if (channelValidate(message.channel.name, command.options.channel)) {
+							command.callback(message, commandArgs, this.client);
+							return;
+						}
+					} else if (command.options.canUse) {
+						if (canUseValidate(message.author.id, command.options.canUse)) {
+							command.callback(message, commandArgs, this.client);
+							return;
+						}
+					}
+
 					return;
-				} else if (!command.options || !command.options.channel) {
+				} else {
 					command.callback(message, commandArgs, this.client);
 					return;
 				}
