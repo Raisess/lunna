@@ -1,11 +1,14 @@
 import { Client } from "discord.js";
 
+import { Command } from "./@types/Command";
+import { ICommandCallback, ICommandOptions } from "./interfaces/ICommand";
+
 export default class Core {
 	private client: Client = new Client();
 	private prefix: string;
 	private token:  string;
 	// commands storage
-	private commands: Array<[string, Function]> = [];
+	private commands: Array<Command> = [];
 	// special messages storage
 	private specialWords: Array<[Array<string>, Function]> = [];
 
@@ -49,8 +52,8 @@ export default class Core {
 	}
 
 	// store command
-	public onCommand(command: string, callback: Function): void {
-		this.commands.push([command.toLowerCase(), callback]);
+	public onCommand(command: string, callback: ICommandCallback, options?: ICommandOptions): void {
+		this.commands.push([command.toLowerCase(), callback, options]);
 	}
 
 	// execute a special message callback
