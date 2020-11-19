@@ -1,12 +1,12 @@
 import { ICommand } from "../interfaces/ICommand";
 
-export const evalCommandSignature: ICommand = {
+export const evalCommand: ICommand = {
 	name:     "=>",
-	callback: evalCommand,
+	callback: evalCommandCallback,
 	options:  { canUse: ["456557054237212682"] }
 };
 
-function evalCommand(message: any, args?: Array<string>): void {
+function evalCommandCallback(message: any, args?: Array<string>): void {
 	const code:   string = args ? args.join(" ") : "";
 	const result: any    = eval(code);
 
