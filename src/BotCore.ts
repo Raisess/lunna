@@ -3,8 +3,8 @@ import { Client } from "discord.js";
 import { ICommand, ICommandCallback, ICommandOptions } from "./interfaces/ICommand";
 import { ISpecialWord, ISpecialWordCallback } from "./interfaces/ISpecialWord";
 
-import channelValidate from "./modules/channelValidate";
-import canUseValidate from "./modules/canUseValidate";
+import channelValidator from "./validators/channelValidator";
+import canUseValidator from "./validators/canUseValidator";
 
 export default class BotCore {
 	private client: Client = new Client();
@@ -46,19 +46,19 @@ export default class BotCore {
 			if (commandOnly === command.name) {
 				if (command.options) {
 					if (command.options.channel && command.options.canUse) {
-						if (channelValidate(message.channel.name, command.options.channel)) {
-							if (canUseValidate(message.author.id, command.options.canUse)) {
+						if (channelValidator(message.channel.name, command.options.channel)) {
+							if (canUseValidator(message.author.id, command.options.canUse)) {
 								command.callback(message, commandArgs, this.client);
 								return;
 							}
 						}
 					} else if (command.options.channel) {
-						if (channelValidate(message.channel.name, command.options.channel)) {
+						if (channelValidator(message.channel.name, command.options.channel)) {
 							command.callback(message, commandArgs, this.client);
 							return;
 						}
 					} else if (command.options.canUse) {
-						if (canUseValidate(message.author.id, command.options.canUse)) {
+						if (canUseValidator(message.author.id, command.options.canUse)) {
 							command.callback(message, commandArgs, this.client);
 							return;
 						}
