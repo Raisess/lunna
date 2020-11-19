@@ -25,11 +25,9 @@ export default class Core {
 			if (message.author.bot) return;
 
 			// check if is a command
-			if (message.content.startsWith(this.prefix)){ 
-				this.onCommandExec(message);
-			} else {
-				this.onMessageIncludesExec(message);
-			}
+			if (message.content.startsWith(this.prefix)) this.onCommandExec(message);
+
+			this.onMessageIncludesExec(message);
 		});
 
 		this.client.login(this.token);
