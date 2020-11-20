@@ -8,13 +8,17 @@ import { execCommand } from "../commands/execCommand";
 import { pingCommand } from "../commands/pingCommand";
 import { profilPictureCommand } from "../commands/profilePictureCommand";
 import { imageCommand } from "../commands/imageCommand";
+import { hugCommand } from "../commands/hugCommand";
 
 export const commands: Array<ICommand> = [
+	// admin
 	evalCommand,
 	debugArgsCommand,
 	execCommand,
+	// all
 	pingCommand,
 	profilPictureCommand,
-	imageCommand
+	imageCommand,
+	hugCommand
 ];
 
