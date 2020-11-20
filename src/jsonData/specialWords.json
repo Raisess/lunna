@@ -1,0 +1,12 @@
+[
+	{
+		"words": ["mornin", "morning", "bom dia", "dia"],
+		"reactWith": "☕"
+	},
+	{
+		"words": ["ipanema"],
+		"reactWith": "🐥",
+		"respondWith": "Festa em Ipanema meu amor!"
+	}
+]
+
