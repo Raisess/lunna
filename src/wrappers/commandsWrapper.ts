@@ -6,11 +6,13 @@ import { debugArgsCommand } from "../commands/debugArgsCommand";
 import { execCommand } from "../commands/execCommand";
 // all
 import { pingCommand } from "../commands/pingCommand";
+import { imageCommand } from "../commands/imageCommand";
 
 export const commands: Array<ICommand> = [
 	evalCommand,
 	debugArgsCommand,
 	execCommand,
-	pingCommand
+	pingCommand,
+	imageCommand
 ];
 
