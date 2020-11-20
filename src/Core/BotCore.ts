@@ -3,6 +3,8 @@ import { Client } from "discord.js";
 import { ICommand, ICommandCallback, ICommandOptions } from "../interfaces/ICommand";
 import { ISpecialWord, ISpecialWordCallback } from "../interfaces/ISpecialWord";
 
+import log from "../utils/messageLog";
+
 import channelValidator from "./validators/channelValidator";
 import canUseValidator from "./validators/canUseValidator";
 
@@ -26,6 +28,8 @@ export default class BotCore {
 		this.client.on("ready", (): void => console.log("bot running!"));
 
 		this.client.on("message", (message: any): void => {
+			log(message);
+
 			if (message.author.bot) return;
 
 			// check if is a command
