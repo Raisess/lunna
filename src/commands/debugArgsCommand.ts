@@ -6,7 +6,7 @@ export const debugArgsCommand: ICommand = {
 	name:     "da",
 	callback: debugArgsCommandCallback,
 	options:  adminCommandOptions["debugArgs"]
-}
+};
 
 function debugArgsCommandCallback(commandMessage: ICommandMessage): void {
 	const args: Array<string> = commandMessage.args ? commandMessage.args : [];
