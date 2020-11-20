@@ -1,5 +1,3 @@
-import { Client } from "discord.js";
-
 export interface ICommand {
 	name:     string;
 	callback: ICommandCallback;
@@ -12,7 +10,7 @@ export interface ICommandMessage {
 }
 
 export interface ICommandCallback {
-	(message: ICommandMessage, client?: Client): void;
+	(message: ICommandMessage, client?: any): void;
 }
 
 export interface ICommandOptions {
