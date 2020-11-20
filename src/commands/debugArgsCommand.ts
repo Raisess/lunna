@@ -1,6 +1,6 @@
 import { ICommand, ICommandMessage } from "../interfaces/ICommand";
 
-import adminCommandOptions from "../adminCommandsOptions.json";
+import adminCommandOptions from "../jsonData/adminCommandsOptions.json";
 
 export const debugArgsCommand: ICommand = {
 	name:     "da",
