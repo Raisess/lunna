@@ -8,7 +8,7 @@ export const evalCommand: ICommand = {
 
 function evalCommandCallback(commandMessage: ICommandMessage): void {
 	const code:   string = commandMessage.args ? commandMessage.args.join(" ") : "";
-	const result: any    = eval(code);
+	const result: string = eval(code);
 
 	commandMessage.message.channel.send(result, { code: "xl" });
 }
