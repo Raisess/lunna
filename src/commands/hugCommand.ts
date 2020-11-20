@@ -17,7 +17,7 @@ async function hugCommandCallback(commandMessage: ICommandMessage): Promise<void
 		const embed: MessageEmbed = new MessageEmbed();
 
 		embed.setColor("#dd2e44");
-		embed.setTitle(`Lunna hug's ${user.username} ❤️ ❤️ ❤️`);
+		embed.setTitle(`Lunna hugged ${user.username} ❤️ ❤️ ❤️`);
 		embed.setImage(image);
 
 		commandMessage.message.channel.send(embed);
