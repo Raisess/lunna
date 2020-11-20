@@ -16,7 +16,7 @@ export default class BotCore {
 	private specialWords: Array<ISpecialWord> = [];
 
 	constructor(prefix: string = "!", token: string = "") {
-		this.prefix = prefix;
+		this.prefix = prefix.toLowerCase();
 		this.token  = token;
 
 		this.start();
@@ -29,7 +29,7 @@ export default class BotCore {
 			if (message.author.bot) return;
 
 			// check if is a command
-			if (message.content.startsWith(this.prefix)) this.onCommandExec(message);
+			if (message.content.toLowerCase().startsWith(this.prefix)) this.onCommandExec(message);
 
 			this.onMessageIncludesExec(message);
 		});
