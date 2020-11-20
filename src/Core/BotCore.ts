@@ -40,7 +40,7 @@ export default class BotCore {
 	// execute command callback
 	private onCommandExec(message: any): void {
 		const commandOnly: string        = message.content.toLowerCase().split(" ")[1];
-		const commandArgs: Array<string> = message.content.toLowerCase().split(" ").slice(2);
+		const commandArgs: Array<string> = message.content.split(" ").slice(2);
 
 		for (const command of this.commands) {
 			if (commandOnly === command.name) {
