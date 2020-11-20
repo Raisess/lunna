@@ -1,6 +1,6 @@
-import { ISpecialWord } from "./interfaces/ISpecialWord";
+import { ISpecialWord } from "../interfaces/ISpecialWord";
 
-import specialWordsJson from "./jsonData/specialWords.json";
+import specialWordsJson from "../jsonData/specialWords.json";
 
 export const specialWords: Array<ISpecialWord> = specialWordsJson.map((json: any) => {
 	return {

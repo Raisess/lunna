@@ -1,8 +1,8 @@
 import "dotenv/config";
 
 import BotCore from "./Core/BotCore";
-import { commands } from "./commandsWrapper";
-import { specialWords } from "./specialWordsWrapper";
+import { commands } from "./wrappers/commandsWrapper";
+import { specialWords } from "./wrappers/specialWordsWrapper";
 
 const bot: BotCore = new BotCore(process.env.BOT_PREFIX, process.env.BOT_TOKEN);
 
