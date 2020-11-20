@@ -1,4 +1,4 @@
-import { ICommand } from "../interfaces/ICommand";
+import { ICommand, ICommandMessage } from "../interfaces/ICommand";
 
 export const evalCommand: ICommand = {
 	name:     "=>",
@@ -6,10 +6,10 @@ export const evalCommand: ICommand = {
 	options:  { canUse: ["456557054237212682"] }
 };
 
-function evalCommandCallback(message: any, args?: Array<string>): void {
-	const code:   string = args ? args.join(" ") : "";
+function evalCommandCallback(commandMessage: ICommandMessage): void {
+	const code:   string = commandMessage.args ? commandMessage.args.join(" ") : "";
 	const result: any    = eval(code);
 
-	message.channel.send(result, { code: "xl" });
+	commandMessage.message.channel.send(result, { code: "xl" });
 }
 

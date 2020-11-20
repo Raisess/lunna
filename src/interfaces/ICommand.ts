@@ -6,8 +6,13 @@ export interface ICommand {
 	options: 	ICommandOptions | undefined;
 }
 
+export interface ICommandMessage {
+	message: any;
+	args?:   Array<string>
+}
+
 export interface ICommandCallback {
-	(message: any, agrs?: Array<string>, client?: Client): void;
+	(message: ICommandMessage, client?: Client): void;
 }
 
 export interface ICommandOptions {

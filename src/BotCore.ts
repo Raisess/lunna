@@ -48,25 +48,25 @@ export default class BotCore {
 					if (command.options.channel && command.options.canUse) {
 						if (channelValidator(message.channel.name, command.options.channel)) {
 							if (canUseValidator(message.author.id, command.options.canUse)) {
-								command.callback(message, commandArgs, this.client);
+								command.callback({ message, args: commandArgs }, this.client);
 								return;
 							}
 						}
 					} else if (command.options.channel) {
 						if (channelValidator(message.channel.name, command.options.channel)) {
-							command.callback(message, commandArgs, this.client);
+							command.callback({ message, args: commandArgs }, this.client);
 							return;
 						}
 					} else if (command.options.canUse) {
 						if (canUseValidator(message.author.id, command.options.canUse)) {
-							command.callback(message, commandArgs, this.client);
+							command.callback({ message, args: commandArgs }, this.client);
 							return;
 						}
 					}
 
 					return;
 				} else {
-					command.callback(message, commandArgs, this.client);
+					command.callback({ message, args: commandArgs }, this.client);
 					return;
 				}
 			}
