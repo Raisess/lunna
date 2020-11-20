@@ -1,9 +1,11 @@
 import { ICommand, ICommandMessage } from "../interfaces/ICommand";
 
+import adminCommandOptions from "../adminCommandsOptions.json";
+
 export const evalCommand: ICommand = {
 	name:     "=>",
 	callback: evalCommandCallback,
-	options:  { canUse: ["456557054237212682"] }
+	options:  adminCommandOptions["eval"]
 };
 
 function evalCommandCallback(commandMessage: ICommandMessage): void {

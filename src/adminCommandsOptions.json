@@ -1,0 +1,11 @@
+{
+	"eval": {
+		"canUse": ["456557054237212682"],
+		"channel": ["debug"]
+	},
+	"debugArgs": {
+		"canUse": ["456557054237212682"],
+		"channel": ["debug"]
+	}
+}
+

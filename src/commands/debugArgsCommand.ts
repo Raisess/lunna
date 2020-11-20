@@ -1,9 +1,11 @@
 import { ICommand, ICommandMessage } from "../interfaces/ICommand";
 
+import adminCommandOptions from "../adminCommandsOptions.json";
+
 export const debugArgsCommand: ICommand = {
 	name:     "da",
 	callback: debugArgsCommandCallback,
-	options:  { canUse: ["456557054237212682"] }
+	options:  adminCommandOptions["debugArgs"]
 }
 
 function debugArgsCommandCallback(commandMessage: ICommandMessage): void {
