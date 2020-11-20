@@ -64,6 +64,7 @@ export default class BotCore {
 						}
 					}
 
+					message.react("🚫");
 					return;
 				} else {
 					command.callback({ message, args: commandArgs }, this.client);
