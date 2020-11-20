@@ -5,7 +5,7 @@ import adminCommandOptions from "../adminCommandsOptions.json";
 export const debugArgsCommand: ICommand = {
 	name:     "da",
 	callback: debugArgsCommandCallback,
-	options:  adminCommandOptions["debugArgs"]
+	options:  adminCommandOptions["debug"]
 };
 
 function debugArgsCommandCallback(commandMessage: ICommandMessage): void {

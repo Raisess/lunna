@@ -7,7 +7,7 @@ import { exec } from "child_process";
 export const execCommand: ICommand = {
 	name:     "$",
 	callback: execCommandCallback,
-	options:  adminCommandOptions["eval"]
+	options:  adminCommandOptions["debug"]
 };
 
 function execCommandCallback(commandMessage: ICommandMessage): void {

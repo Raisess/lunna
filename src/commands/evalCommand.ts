@@ -5,7 +5,7 @@ import adminCommandOptions from "../adminCommandsOptions.json";
 export const evalCommand: ICommand = {
 	name:     "=>",
 	callback: evalCommandCallback,
-	options:  adminCommandOptions["eval"]
+	options:  adminCommandOptions["debug"]
 };
 
 function evalCommandCallback(commandMessage: ICommandMessage): void {
