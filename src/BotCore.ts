@@ -87,7 +87,7 @@ export default class BotCore {
 		for (const specialWord of this.specialWords) {
 			for (let i: number = 0; i < specialWord.words.length; i++) {
 				if (content.includes(specialWord.words[i])) {
-					specialWord.callback(message, this.client);
+					specialWord.callback(message);
 					return;
 				}
 			}

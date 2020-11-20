@@ -4,6 +4,6 @@ export interface ISpecialWord {
 }
 
 export interface ISpecialWordCallback {
-	(message: any, client?: any): void;
+	(message: any): void;
 }
 
