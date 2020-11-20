@@ -7,7 +7,7 @@ export const pingCommand: ICommand = {
 	callback: pingCommandCallback
 };
 
-function pingCommandCallback(commandMessage: ICommandMessage, client: any) {
+function pingCommandCallback(commandMessage: ICommandMessage, client: any): void {
 	const embed: MessageEmbed = new MessageEmbed();
 
 	embed.setColor("#028cef");
