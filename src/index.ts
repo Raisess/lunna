@@ -1,6 +1,6 @@
 import "dotenv/config";
 
-import BotCore from "./BotCore";
+import BotCore from "./Core/BotCore";
 import { commands } from "./commandsWrapper";
 import { specialWords } from "./specialWordsWrapper";
 

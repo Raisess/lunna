@@ -1,7 +1,7 @@
 import { Client } from "discord.js";
 
-import { ICommand, ICommandCallback, ICommandOptions } from "./interfaces/ICommand";
-import { ISpecialWord, ISpecialWordCallback } from "./interfaces/ISpecialWord";
+import { ICommand, ICommandCallback, ICommandOptions } from "../interfaces/ICommand";
+import { ISpecialWord, ISpecialWordCallback } from "../interfaces/ISpecialWord";
 
 import channelValidator from "./validators/channelValidator";
 import canUseValidator from "./validators/canUseValidator";
