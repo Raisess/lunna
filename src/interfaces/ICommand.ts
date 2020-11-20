@@ -3,7 +3,7 @@ import { Client } from "discord.js";
 export interface ICommand {
 	name:     string;
 	callback: ICommandCallback;
-	options: 	ICommandOptions | undefined;
+	options?:	ICommandOptions;
 }
 
 export interface ICommandMessage {
