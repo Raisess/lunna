@@ -4,8 +4,9 @@ import { MessageEmbed } from "discord.js";
 import pixabayGetService from "../services/imageServices/pixabayGetService";
 
 export const hugCommand: ICommand = {
-	name:     "hug",
-	callback: hugCommandCallback
+	name:        "hug",
+	description: "Lunna hug's a user",
+	callback:    hugCommandCallback
 };
 
 async function hugCommandCallback(commandMessage: ICommandMessage): Promise<void> {

@@ -5,9 +5,10 @@ import adminCommandOptions from "../jsonData/adminCommandsOptions.json";
 import { exec } from "child_process";
 
 export const execCommand: ICommand = {
-	name:     "$",
-	callback: execCommandCallback,
-	options:  adminCommandOptions["debug"]
+	name:        "$",
+	description: "child_process exec",
+	callback:    execCommandCallback,
+	options:     adminCommandOptions["debug"]
 };
 
 function execCommandCallback(commandMessage: ICommandMessage): void {

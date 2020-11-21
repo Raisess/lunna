@@ -3,9 +3,10 @@ import { ICommand, ICommandMessage } from "../interfaces/ICommand";
 import adminCommandOptions from "../jsonData/adminCommandsOptions.json";
 
 export const evalCommand: ICommand = {
-	name:     "=>",
-	callback: evalCommandCallback,
-	options:  adminCommandOptions["debug"]
+	name:        "=>",
+	description: "Evaluate a JS expression",
+	callback:     evalCommandCallback,
+	options:      adminCommandOptions["debug"]
 };
 
 function evalCommandCallback(commandMessage: ICommandMessage): void {

@@ -4,8 +4,9 @@ import { MessageEmbed } from "discord.js";
 import pixabayGetService from "../services/imageServices/pixabayGetService";
 
 export const imageCommand: ICommand = {
-	name:     "img",
-	callback: imageCommandCallback
+	name:        "img",
+	description: "Get a random image from pixabay, Try: lunna img kitty",
+	callback:    imageCommandCallback
 };
 
 async function imageCommandCallback(commandMessage: ICommandMessage): Promise<void> {

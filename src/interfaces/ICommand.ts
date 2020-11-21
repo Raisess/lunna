@@ -1,7 +1,8 @@
 export interface ICommand {
-	name:     string;
-	callback: ICommandCallback;
-	options?:	ICommandOptions;
+	name:        string;
+	description: string;
+	callback:    ICommandCallback;
+	options?:	   ICommandOptions;
 }
 
 export interface ICommandMessage {

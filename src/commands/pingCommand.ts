@@ -3,8 +3,9 @@ import { ICommand, ICommandMessage } from "../interfaces/ICommand";
 import { MessageEmbed } from "discord.js";
 
 export const pingCommand: ICommand = {
-	name:     "ping",
-	callback: pingCommandCallback
+	name:        "ping",
+	description: "Ping Lunna server",
+	callback:    pingCommandCallback
 };
 
 function pingCommandCallback(commandMessage: ICommandMessage, client: any): void {

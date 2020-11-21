@@ -81,8 +81,8 @@ export default class BotCore {
 	}
 
 	// store command
-	public onCommand(command: string, callback: ICommandCallback, options?: ICommandOptions): void {
-		this.commands.push({ name: command.toLowerCase(), callback, options });
+	public onCommand(command: string, description: string, callback: ICommandCallback, options?: ICommandOptions): void {
+		this.commands.push({ name: command.toLowerCase(), description, callback, options });
 	}
 
 	// execute a special message callback

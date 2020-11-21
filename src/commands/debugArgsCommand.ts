@@ -3,9 +3,10 @@ import { ICommand, ICommandMessage } from "../interfaces/ICommand";
 import adminCommandOptions from "../jsonData/adminCommandsOptions.json";
 
 export const debugArgsCommand: ICommand = {
-	name:     "da",
-	callback: debugArgsCommandCallback,
-	options:  adminCommandOptions["debug"]
+	name:        "da",
+	description: "Debug command message arguments",
+	callback:    debugArgsCommandCallback,
+	options:     adminCommandOptions["debug"]
 };
 
 function debugArgsCommandCallback(commandMessage: ICommandMessage): void {

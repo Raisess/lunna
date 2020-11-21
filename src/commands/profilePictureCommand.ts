@@ -3,8 +3,9 @@ import { ICommand, ICommandMessage } from "../interfaces/ICommand";
 import { MessageEmbed } from "discord.js";
 
 export const profilPictureCommand: ICommand = {
-	name:     "pfp",
-	callback: profilPictureCommandCallback
+	name:        "pfp",
+	description: "Get a user profile picture",
+	callback:    profilPictureCommandCallback
 };
 
 function profilPictureCommandCallback(commandMessage: ICommandMessage): void {
