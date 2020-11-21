@@ -25,7 +25,11 @@ export default class BotCore {
 	}
 
 	private start(): void {
-		this.client.on("ready", (): void => console.log("bot running!"));
+		this.client.on("ready", async (): Promise<void> => { 
+			console.log("bot running!");
+
+			this.setActivity(`in ${await this.getGuildsSize()} servers with ${await this.getUsersSize()} users.`);
+		});
 
 		this.client.on("message", (message: any): void => {
 			log(message);
@@ -39,6 +43,25 @@ export default class BotCore {
 		});
 
 		this.client.login(this.token);
+	}
+
+	public async getGuildsSize(): Promise<number> {
+		// @ts-ignore
+		const guildsSize: number = await this.client.guilds.cache.size;
+
+		return guildsSize;
+	}
+
+	public async getUsersSize(): Promise<number> {
+		// @ts-ignore
+		const usersSize: number = await this.client.users.cache.size;
+
+		return usersSize;
+	}
+
+	// set a activity to bot
+	public setActivity(game: string, type: string = "PLAYING"): void {
+		this.client.user.setActivity(game, { type });
 	}
 
 	// execute command callback
