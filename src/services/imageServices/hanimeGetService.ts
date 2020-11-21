@@ -5,8 +5,8 @@ export default async function hanimeGetService(): Promise<string> {
 
 	function baseUrl(value: number): [string, string] {
 		return [
-			`https://i1.wp.com/dynamic-assets.imageg.top/uploads/1132000/1132${value}.png?quality=99&h=250`,
-			`https://i1.wp.com/dynamic-assets.imageg.top/uploads/1132000/1132${value}.jpg?quality=99&h=250`
+			`https://i1.wp.com/dynamic-assets.imageg.top/uploads/1132000/1132${value}.png?quality=99&h=512`,
+			`https://i1.wp.com/dynamic-assets.imageg.top/uploads/1132000/1132${value}.jpg?quality=99&h=512`
 		];
 	}
 
