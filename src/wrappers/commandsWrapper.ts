@@ -1,6 +1,6 @@
 import { ICommand } from "../interfaces/ICommand";
 
-// admin
+// bot admin
 import { evalCommand } from "../commands/evalCommand";
 import { debugArgsCommand } from "../commands/debugArgsCommand";
 import { execCommand } from "../commands/execCommand";
@@ -9,9 +9,11 @@ import { pingCommand } from "../commands/pingCommand";
 import { profilPictureCommand } from "../commands/profilePictureCommand";
 import { imageCommand } from "../commands/imageCommand";
 import { hugCommand } from "../commands/hugCommand";
+// NSFW
+import { hentaiCommand } from "../commands/hentaiCommand";
 
 export const commands: Array<ICommand> = [
-	// admin
+	// bot admin
 	evalCommand,
 	debugArgsCommand,
 	execCommand,
@@ -19,6 +21,8 @@ export const commands: Array<ICommand> = [
 	pingCommand,
 	profilPictureCommand,
 	imageCommand,
-	hugCommand
+	hugCommand,
+	// NSFW
+	hentaiCommand
 ];
 
