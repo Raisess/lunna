@@ -10,8 +10,15 @@ export const evalCommand: ICommand = {
 
 function evalCommandCallback(commandMessage: ICommandMessage): void {
 	const code:   string = commandMessage.args ? commandMessage.args.join(" ") : "";
-	const result: string = eval(code);
+	
+	try {
+		const result: string = eval(code);
 
-	commandMessage.message.channel.send(result, { code: "xl" });
+		commandMessage.message.channel.send(result, { code: "xl" });
+	} catch(err) {
+		console.error(err.message);
+
+		commandMessage.message.react("⚠️");
+	}
 }
 
