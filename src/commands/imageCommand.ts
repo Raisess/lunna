@@ -18,7 +18,7 @@ async function imageCommandCallback(commandMessage: ICommandMessage): Promise<vo
 		const embed: MessageEmbed = new MessageEmbed();
 
 		embed.setColor("#04d840");
-		embed.setTitle(`Random ${search} image:`);
+		embed.setTitle(`Random ${search !== "" ? search : "hmm... just a random"} image:`);
 		embed.setImage(image);
 		embed.setFooter("Powered by Pixabay");
 

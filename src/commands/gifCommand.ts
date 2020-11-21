@@ -10,7 +10,7 @@ export const gifCommand: ICommand = {
 };
 
 async function gifCommandCallback(commandMessage: ICommandMessage): Promise<void> {
-	const search: string = commandMessage.args ? commandMessage.args.join(" ") : undefined || "random";
+	const search: string = commandMessage.args ? commandMessage.args.join(" ") : "";
 	const gif:    string = await tenorGetService(search);
 
 	const embed: MessageEmbed = new MessageEmbed();
