@@ -1,5 +1,7 @@
 import { Client } from "discord.js";
 
+import BotCoreUtils from "./BotCoreUtils";
+
 import { ICommand, ICommandCallback, ICommandOptions } from "../interfaces/ICommand";
 import { ISpecialWord, ISpecialWordCallback } from "../interfaces/ISpecialWord";
 
@@ -8,8 +10,8 @@ import log from "../utils/messageLog";
 import channelValidator from "./validators/channelValidator";
 import canUseValidator from "./validators/canUseValidator";
 
-export default class BotCore {
-	private client: Client = new Client();
+export default class BotCore extends BotCoreUtils {
+	private client: Client;
 	private prefix: string;
 	private token:  string;
 	// commands storage
@@ -17,7 +19,10 @@ export default class BotCore {
 	// special messages storage
 	private specialWords: Array<ISpecialWord> = [];
 
-	constructor(prefix: string = "!", token: string = "") {
+	constructor(client: Client, prefix: string = "!", token: string = "") {
+		super(client);
+
+		this.client = client;
 		this.prefix = prefix.toLowerCase();
 		this.token  = token;
 
@@ -28,7 +33,7 @@ export default class BotCore {
 		this.client.on("ready", async (): Promise<void> => { 
 			console.log("bot running!");
 
-			this.setActivity(`in ${await this.getGuildsSize()} servers with ${await this.getUsersSize()} users.`);
+			super.setActivity(`in ${await super.getGuildsSize()} servers with ${await super.getUsersSize()} users.`);
 		});
 
 		this.client.on("message", (message: any): void => {
@@ -43,25 +48,6 @@ export default class BotCore {
 		});
 
 		this.client.login(this.token);
-	}
-
-	public async getGuildsSize(): Promise<number> {
-		// @ts-ignore
-		const guildsSize: number = await this.client.guilds.cache.size;
-
-		return guildsSize;
-	}
-
-	public async getUsersSize(): Promise<number> {
-		// @ts-ignore
-		const usersSize: number = await this.client.users.cache.size;
-
-		return usersSize;
-	}
-
-	// set a activity to bot
-	public setActivity(game: string, type: string = "PLAYING"): void {
-		this.client.user.setActivity(game, { type });
 	}
 
 	// execute command callback
