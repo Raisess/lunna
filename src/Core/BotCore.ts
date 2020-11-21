@@ -68,6 +68,10 @@ export default class BotCore {
 						}
 					}
 
+					if (command.options.channel) {
+						message.reply(`you only can use that command in a channel named: ${command.options.channel.join(" or ")} 😳 😳 😳`);
+					}
+
 					message.react("🚫");
 					return;
 				} else {
