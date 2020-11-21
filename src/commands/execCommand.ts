@@ -14,14 +14,18 @@ export const execCommand: ICommand = {
 function execCommandCallback(commandMessage: ICommandMessage): void {
 	const toExec: string = commandMessage.args ? commandMessage.args.join(" ") : "";
 
-	exec(toExec, (err: any, stdout: string, stderr: string) => {
-		if (err) {
-			commandMessage.message.react("⚠️");
-			return;
-		}
+	if (toExec !== "") {
+		exec(toExec, (err: any, stdout: string, stderr: string) => {
+			if (err) {
+				commandMessage.message.react("⚠️");
+				return;
+			}
 
-		if (stdout) commandMessage.message.channel.send(stdout, { code: "shell" });
-		if (stderr) commandMessage.message.channel.send(stderr, { code: "shell" });
-	});
+			if (stdout) commandMessage.message.channel.send(stdout, { code: "shell" });
+			if (stderr) commandMessage.message.channel.send(stderr, { code: "shell" });
+		});
+	} else {
+		commandMessage.message.react("⚠️");
+	}
 }
 
