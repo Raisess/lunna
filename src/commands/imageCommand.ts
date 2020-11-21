@@ -12,7 +12,7 @@ export const imageCommand: ICommand = {
 async function imageCommandCallback(commandMessage: ICommandMessage): Promise<void> {
 	const search: string = commandMessage.args ? commandMessage.args.join(" ").toLowerCase() : "";
 
-	const image: string | undefined = await pixabayGetService(search);
+	const image: string | undefined = await pixabayGetService(search !== "" ? search : "random");
 
 	if (image) {
 		const embed: MessageEmbed = new MessageEmbed();
