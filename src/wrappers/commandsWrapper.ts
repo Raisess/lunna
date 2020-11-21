@@ -9,6 +9,7 @@ import { pingCommand } from "../commands/pingCommand";
 import { profilPictureCommand } from "../commands/profilePictureCommand";
 import { imageCommand } from "../commands/imageCommand";
 import { hugCommand } from "../commands/hugCommand";
+import { helpCommand } from "../commands/helpCommand";
 // NSFW
 import { hentaiCommand } from "../commands/hentaiCommand";
 
@@ -22,6 +23,7 @@ export const commands: Array<ICommand> = [
 	profilPictureCommand,
 	imageCommand,
 	hugCommand,
+	helpCommand,
 	// NSFW
 	hentaiCommand
 ];
