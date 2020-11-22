@@ -4,6 +4,8 @@ import { ICommand } from "../interfaces/ICommand";
 import { evalCommand } from "../commands/evalCommand";
 import { debugArgsCommand } from "../commands/debugArgsCommand";
 import { execCommand } from "../commands/execCommand";
+// server admin
+import { kickCommand, banCommand } from "../commands/kickBanCommand";
 // all
 import { pingCommand } from "../commands/pingCommand";
 import { profilPictureCommand } from "../commands/profilePictureCommand";
@@ -20,6 +22,9 @@ export const commands: Array<ICommand> = [
 	evalCommand,
 	debugArgsCommand,
 	execCommand,
+	// server admin
+	kickCommand,
+	banCommand,
 	// all
 	pingCommand,
 	profilPictureCommand,
