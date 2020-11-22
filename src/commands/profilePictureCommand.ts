@@ -1,6 +1,7 @@
 import { ICommand, ICommandMessage } from "../interfaces/ICommand";
 
 import { MessageEmbed } from "discord.js";
+import getUserAvatar from "../modules/getUserAvatar";
 
 export const profilPictureCommand: ICommand = {
 	name:        "pfp",
@@ -10,8 +11,8 @@ export const profilPictureCommand: ICommand = {
 
 function profilPictureCommandCallback(commandMessage: ICommandMessage): void {
 	const user:   any    = commandMessage.message.mentions.users.first() || commandMessage.message.author;
-	const avatar: string = user.avatarURL({ dynamic: true, format: "png", size: 1024 });
-
+	const avatar: string = getUserAvatar(user);
+	
 	const embed: MessageEmbed = new MessageEmbed();
 
 	embed.setColor("RANDOM");
