@@ -13,6 +13,7 @@ import { helpCommand } from "../commands/helpCommand";
 import { gifCommand } from "../commands/gifCommand";
 // NSFW
 import { hentaiCommand } from "../commands/hentaiCommand";
+import { ppCommand } from "../commands/ppCommand";
 
 export const commands: Array<ICommand> = [
 	// bot admin
@@ -27,6 +28,7 @@ export const commands: Array<ICommand> = [
 	helpCommand,
 	gifCommand,
 	// NSFW
-	hentaiCommand
+	hentaiCommand,
+	ppCommand
 ];
 
