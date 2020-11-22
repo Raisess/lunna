@@ -20,14 +20,13 @@
   },
   "homepage": "https://github.com/Raisess/lunna#readme",
   "dependencies": {
-    "@types/node": "^14.14.8",
-    "@types/node-fetch": "^2.5.7",
     "discord.js": "^12.4.1",
     "dotenv": "^8.2.0",
-    "firebase-admin": "^9.4.1",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
-    "@types/dotenv": "^8.2.0"
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^14.14.9",
+    "@types/node-fetch": "^2.5.7"
   }
 }
