@@ -35,7 +35,7 @@ function ppCommandCallback(commandMessage: ICommandMessage): void {
 
 	embed.setColor("RANDOM");
 	embed.setThumbnail(avatar);
-	embed.setTitle(`${user.username} pp info:`);
+	embed.setTitle(`${user.username}'s pp info:`);
 	embed.addField("PP size:", `${pp.size}cm`);
 	embed.addField("PP representation:", `8${pp.draw(pp.size)}D`);
 	embed.setFooter(`${pp.size > 10 ? "U have a big pp bro." : "Oh dear smol pp, but don't worry its kinda cute."}`);

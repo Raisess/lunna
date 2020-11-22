@@ -16,7 +16,7 @@ function profilPictureCommandCallback(commandMessage: ICommandMessage): void {
 	const embed: MessageEmbed = new MessageEmbed();
 
 	embed.setColor("RANDOM");
-	embed.setAuthor(`${user.username} profile picture:`);
+	embed.setAuthor(`${user.username}'s profile picture:`);
 	embed.setImage(avatar);
 	embed.setDescription(`[Image Link](${avatar})`);
 
