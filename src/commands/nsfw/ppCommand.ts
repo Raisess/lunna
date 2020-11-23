@@ -6,7 +6,8 @@ import getUserAvatar from "../../modules/userModules/getUserAvatar";
 export const ppCommand: ICommand = {
 	name:        "pp",
 	description: "Generate user pp info yayay.",
-	callback:    ppCommandCallback
+	callback:    ppCommandCallback,
+	options:     { channel: ["nsfw", "pp-info"] }
 };
 
 interface IPP {
