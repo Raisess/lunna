@@ -1,15 +1,13 @@
 import "dotenv/config";
 
 import { Client } from "discord.js";
+import http from "http";
+import app from "./server";
 
 import BotCore from "./Core/BotCore";
 import { commands } from "./wrappers/commandsWrapper";
 import { specialWords } from "./wrappers/specialWordsWrapper";
 
-import http from "http";
-import SmolHttp from "./libraries/smol-http/src/SmolHttp";
-
-// bot
 const bot: BotCore = new BotCore(new Client(), process.env.BOT_PREFIX, process.env.BOT_TOKEN);
 
 for (const command of commands) {
@@ -20,10 +18,7 @@ for (const specialWord of specialWords) {
 	bot.onMessageIncludes(specialWord.words, specialWord.callback);
 }
 
-// server
-const server: SmolHttp = new SmolHttp(parseInt(process.env.PORT || "1939"));
-
-server.get("/", () => "");
+app.listen(process.env.PORT || 1939);
 
 // keep server alive
 setInterval(() => {
