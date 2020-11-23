@@ -40,7 +40,7 @@ function ppCommandCallback(commandMessage: ICommandMessage, client: any): void {
 	embed.setTitle(`${user.username}'s pp info:`);
 	embed.addField("PP size:", `${pp.size}cm`);
 	embed.addField("PP representation:", `8${pp.draw(pp.size)}D`);
-	embed.setFooter(`${pp.size > 10 ? (isLunna ? "I have the biggest pp in the world bud haha." : "U have a big pp bro.") : "Oh dear smol pp, but don't worry its kinda cute."}`);
+	embed.setFooter(`${pp.size > 14 ? (isLunna ? "I have the biggest pp in the world bud haha." : "U have a big pp bro.") : "Oh dear smol pp, but don't worry its kinda cute."}`);
 
 	commandMessage.message.channel.send(embed);
 }
