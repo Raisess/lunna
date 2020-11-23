@@ -1,7 +1,7 @@
 import "dotenv/config";
 
 import { Client } from "discord.js";
-import http from "http";
+import https from "https";
 import app from "./server";
 
 import BotCore from "./Core/BotCore";
@@ -22,6 +22,8 @@ app.listen(process.env.PORT || 1939);
 
 // keep server alive
 setInterval(() => {
-	http.get(process.env.SERVER_URL ? `https://${process.env.SERVER_URL}` : "http://localhost:1939");
+	if (process.env.SERVER_URL && process.env.SERVER_URL !== "") {
+		https.get(process.env.SERVER_URL);
+	}
 }, 5 * 60000);
 
