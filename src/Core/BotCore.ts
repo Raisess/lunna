@@ -55,24 +55,26 @@ export default class BotCore extends BotCoreUtils {
 		const commandOnly: string        = message.content.toLowerCase().split(" ")[1];
 		const commandArgs: Array<string> = message.content.split(" ").slice(2);
 
+		const member: any = message.guild.member(message.author);
+
 		for (const command of this.commands) {
 			if (commandOnly === command.name) {
 				if (command.options) {
 					if (command.options.channel && command.options.canUse) {
 						if (channelValidator(message.channel.name, command.options.channel)) {
 							if (canUseValidator(message.author.id, command.options.canUse)) {
-								command.callback({ message, args: commandArgs }, this.client);
+								command.callback({ message, member, args: commandArgs }, this.client);
 								return;
 							}
 						}
 					} else if (command.options.channel) {
 						if (channelValidator(message.channel.name, command.options.channel)) {
-							command.callback({ message, args: commandArgs }, this.client);
+							command.callback({ message, member, args: commandArgs }, this.client);
 							return;
 						}
 					} else if (command.options.canUse) {
 						if (canUseValidator(message.author.id, command.options.canUse)) {
-							command.callback({ message, args: commandArgs }, this.client);
+							command.callback({ message, member, args: commandArgs }, this.client);
 							return;
 						}
 					}
@@ -84,7 +86,7 @@ export default class BotCore extends BotCoreUtils {
 					message.react("🚫");
 					return;
 				} else {
-					command.callback({ message, args: commandArgs }, this.client);
+					command.callback({ message, member, args: commandArgs }, this.client);
 					return;
 				}
 			}

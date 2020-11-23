@@ -13,7 +13,9 @@ export const banCommand: ICommand = {
 };
 
 function kickCommandCallback(commandMessage: ICommandMessage): void {
-	if (commandMessage.message.member.hasPermission("KICK_MEMBERS")) {
+	const member: any = commandMessage.member();
+
+	if (member.hasPermission("KICK_MEMBERS")) {
 		const user: any = commandMessage.message.mentions.users.first();
 
 		user.kick();
@@ -26,7 +28,9 @@ function kickCommandCallback(commandMessage: ICommandMessage): void {
 }
 
 function banCommandCallback(commandMessage: ICommandMessage): void {
-	if (commandMessage.message.member.hasPermission("BAN_MEMBERS")) {
+	const member: any = commandMessage.member();
+
+	if (member.hasPermission("BAN_MEMBERS")) {
 		const user: any = commandMessage.message.mentions.users.first();
 
 		user.ban();

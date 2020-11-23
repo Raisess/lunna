@@ -7,7 +7,8 @@ export interface ICommand {
 
 export interface ICommandMessage {
 	message: any;
-	args?:   Array<string>
+	member:  any;
+	args?:   Array<string>;
 }
 
 export interface ICommandCallback {
