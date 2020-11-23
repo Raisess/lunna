@@ -1,6 +1,6 @@
-import { ICommand, ICommandMessage } from "../interfaces/ICommand";
+import { ICommand, ICommandMessage } from "../../interfaces/ICommand";
 
-import { commands } from "../wrappers/commandsWrapper";
+import { commands } from "../../wrappers/commandsWrapper";
 
 export const helpCommand: ICommand = {
 	name:        "help",

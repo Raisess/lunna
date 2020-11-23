@@ -1,21 +1,21 @@
 import { ICommand } from "../interfaces/ICommand";
 
 // bot admin
-import { evalCommand } from "../commands/evalCommand";
-import { debugArgsCommand } from "../commands/debugArgsCommand";
-import { execCommand } from "../commands/execCommand";
+import { evalCommand } from "../commands/botAdmin/evalCommand";
+import { debugArgsCommand } from "../commands/botAdmin/debugArgsCommand";
+import { execCommand } from "../commands/botAdmin/execCommand";
 // server admin
-import { kickCommand, banCommand } from "../commands/kickBanCommand";
-// all
-import { pingCommand } from "../commands/pingCommand";
-import { profilPictureCommand } from "../commands/profilePictureCommand";
-import { imageCommand } from "../commands/imageCommand";
-import { hugCommand } from "../commands/hugCommand";
-import { helpCommand } from "../commands/helpCommand";
-import { gifCommand } from "../commands/gifCommand";
+import { kickCommand, banCommand } from "../commands/serverAdmin/kickBanCommand";
+// public
+import { pingCommand } from "../commands/public/pingCommand";
+import { profilPictureCommand } from "../commands/public/profilePictureCommand";
+import { imageCommand } from "../commands/public/imageCommand";
+import { hugCommand } from "../commands/public/hugCommand";
+import { helpCommand } from "../commands/public/helpCommand";
+import { gifCommand } from "../commands/public/gifCommand";
 // NSFW
-import { hentaiCommand } from "../commands/hentaiCommand";
-import { ppCommand } from "../commands/ppCommand";
+import { hentaiCommand } from "../commands/nsfw/hentaiCommand";
+import { ppCommand } from "../commands/nsfw/ppCommand";
 
 export const commands: Array<ICommand> = [
 	// bot admin

@@ -1,7 +1,7 @@
-import { ICommand, ICommandMessage } from "../interfaces/ICommand";
+import { ICommand, ICommandMessage } from "../../interfaces/ICommand";
 
 import { MessageEmbed } from "discord.js";
-import hanimeGetService from "../services/imageServices/hanimeGetService";
+import hanimeGetService from "../../services/imageServices/hanimeGetService";
 
 export const hentaiCommand: ICommand = {
 	name:        "hentai",

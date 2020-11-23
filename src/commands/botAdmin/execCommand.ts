@@ -1,6 +1,6 @@
-import { ICommand, ICommandMessage } from "../interfaces/ICommand";
+import { ICommand, ICommandMessage } from "../../interfaces/ICommand";
 
-import adminCommandOptions from "../jsonData/adminCommandsOptions.json";
+import adminCommandOptions from "../../jsonData/adminCommandsOptions.json";
 
 import { exec } from "child_process";
 

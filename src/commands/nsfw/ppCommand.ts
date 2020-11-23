@@ -1,7 +1,7 @@
-import { ICommand, ICommandMessage } from "../interfaces/ICommand";
+import { ICommand, ICommandMessage } from "../../interfaces/ICommand";
 
 import { MessageEmbed } from "discord.js";
-import getUserAvatar from "../modules/userModules/getUserAvatar";
+import getUserAvatar from "../../modules/userModules/getUserAvatar";
 
 export const ppCommand: ICommand = {
 	name:        "pp",

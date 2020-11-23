@@ -1,4 +1,4 @@
-import { ICommand, ICommandMessage } from "../interfaces/ICommand";
+import { ICommand, ICommandMessage } from "../../interfaces/ICommand";
 
 import { MessageEmbed } from "discord.js";
 

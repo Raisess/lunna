@@ -1,6 +1,6 @@
-import { ICommand, ICommandMessage } from "../interfaces/ICommand";
+import { ICommand, ICommandMessage } from "../../interfaces/ICommand";
 
-import tenorGetService from "../services/gifServices/tenorGetService";
+import tenorGetService from "../../services/gifServices/tenorGetService";
 import { MessageEmbed } from "discord.js";
 
 export const gifCommand: ICommand = {
