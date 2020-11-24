@@ -14,6 +14,7 @@ import { hugCommand } from "../commands/public/hugCommand";
 import { helpCommand } from "../commands/public/helpCommand";
 import { gifCommand } from "../commands/public/gifCommand";
 import { catCommand } from "../commands/public/catCommand";
+import { weatherCommand } from "../commands/public/weatherCommand";
 // NSFW
 import { hentaiCommand } from "../commands/nsfw/hentaiCommand";
 import { ppCommand } from "../commands/nsfw/ppCommand";
@@ -34,6 +35,7 @@ export const commands: Array<ICommand> = [
 	helpCommand,
 	gifCommand,
 	catCommand,
+	weatherCommand,
 	// NSFW
 	hentaiCommand,
 	ppCommand
