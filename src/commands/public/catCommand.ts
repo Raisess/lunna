@@ -5,7 +5,7 @@ import catGetService from "../../services/imageServices/catGetService";
 
 export const catCommand: ICommand = {
 	name:        "cat",
-	description: "Cat care commands.",
+	description: "See a cat image or gif.",
 	callback:    catCommandCallback
 };
 
