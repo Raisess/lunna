@@ -24,14 +24,14 @@ async function weatherCommandCallback(commandMessage: ICommandMessage): Promise<
 		const embed: MessageEmbed = new MessageEmbed();
 
 		embed.setColor("RANDOM");
-		embed.setTitle(`🌤️  ${weatherData.name} weather:`);
+		embed.setTitle(`🌤️  ${weatherData.name}:`);
 		embed.setDescription(weatherData.weather[0].description);
-		embed.addField("🌡️ Temperature:", `${convertToFar(weatherData.main.temp)}ºF | ${convertToCelsius(weatherData.main.temp)}ºC`, true);
-		embed.addField("🌡️ Feels like:", `${convertToFar(weatherData.main.feels_like)}ºF | ${convertToCelsius(weatherData.main.feels_like)}ºC`, true);
+		embed.addField("🌡️ Temp:", `${convertToFar(weatherData.main.temp)}ºF | ${convertToCelsius(weatherData.main.temp)}ºC`, true);
+		embed.addField("🌡️ Feels:", `${convertToFar(weatherData.main.feels_like)}ºF | ${convertToCelsius(weatherData.main.feels_like)}ºC`, true);
 		embed.addField("💧 Humidity:", `${weatherData.main.humidity}%`, true);
 		embed.addField("☁️ Clouds:", `${weatherData.clouds.all}%`, true);
 		embed.addField("👀 Visibility:", `${weatherData.visibility / 100}%`, true);
-		embed.addField("🍃 Wind speed:", weatherData.wind.speed, true);
+		embed.addField("🍃 Winds:", weatherData.wind.speed, true);
 		embed.setFooter(`Lon: ${weatherData.coord.lon} Lat: ${weatherData.coord.lat}`);
 
 		commandMessage.message.channel.send(embed);
