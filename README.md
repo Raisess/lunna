@@ -1,6 +1,6 @@
 # 🤖 Lunna BOT
 
-### Lunna is a image, nsfw images, gif, interation and moderation bot.
+### Lunna is weather, image, nsfw, gif, interation and moderation bot.
 
 #### She have cool commands, give a chance to her.
 
