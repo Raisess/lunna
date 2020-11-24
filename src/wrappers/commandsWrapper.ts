@@ -13,6 +13,7 @@ import { imageCommand } from "../commands/public/imageCommand";
 import { hugCommand } from "../commands/public/hugCommand";
 import { helpCommand } from "../commands/public/helpCommand";
 import { gifCommand } from "../commands/public/gifCommand";
+import { catCommand } from "../commands/public/catCommand";
 // NSFW
 import { hentaiCommand } from "../commands/nsfw/hentaiCommand";
 import { ppCommand } from "../commands/nsfw/ppCommand";
@@ -32,6 +33,7 @@ export const commands: Array<ICommand> = [
 	hugCommand,
 	helpCommand,
 	gifCommand,
+	catCommand,
 	// NSFW
 	hentaiCommand,
 	ppCommand
