@@ -13,7 +13,7 @@ async function weatherCommandCallback(commandMessage: ICommandMessage): Promise<
 	const args: Array<string> = commandMessage.args ? commandMessage.args : [];
 
 	const location: any = {
-		cityName:    args[0],
+		cityName:    args[0].replace(/-/g, "%20"),
 		stateCode:   args[1],
 		countryCode: args[2]
 	};
