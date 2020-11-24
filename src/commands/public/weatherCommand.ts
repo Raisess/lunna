@@ -31,7 +31,7 @@ async function weatherCommandCallback(commandMessage: ICommandMessage): Promise<
 		embed.addField("💧 Humidity:", `${weatherData.main.humidity}%`, true);
 		embed.addField("☁️ Clouds:", `${weatherData.clouds.all}%`, true);
 		embed.addField("👀 Visibility:", `${weatherData.visibility / 100}%`, true);
-		embed.addField("🍃 Winds:", weatherData.wind.speed, true);
+		embed.addField("🍃 Winds:", `${Math.round(weatherData.wind.speed)}m/s`, true);
 		embed.setFooter(`Lon: ${weatherData.coord.lon} Lat: ${weatherData.coord.lat}`);
 		embed.setTimestamp();
 
