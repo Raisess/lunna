@@ -33,6 +33,7 @@ async function weatherCommandCallback(commandMessage: ICommandMessage): Promise<
 		embed.addField("👀 Visibility:", `${weatherData.visibility / 100}%`, true);
 		embed.addField("🍃 Winds:", weatherData.wind.speed, true);
 		embed.setFooter(`Lon: ${weatherData.coord.lon} Lat: ${weatherData.coord.lat}`);
+		embed.setTimestamp();
 
 		commandMessage.message.channel.send(embed);
 	} catch(e) {
