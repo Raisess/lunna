@@ -41,7 +41,7 @@ async function weatherCommandCallback(commandMessage: ICommandMessage): Promise<
 }
 
 function convertToFar(temp: number): number {
-	return Math.round((temp - 273.15) * 1.8000 + 32.00);
+	return Math.round((temp - 273.15) * 1.8 + 32);
 }
 
 function convertToCelsius(temp: number): number {
