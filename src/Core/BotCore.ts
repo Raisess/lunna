@@ -31,20 +31,24 @@ export default class BotCore extends BotCoreUtils {
 
 	private start(): void {
 		this.client.on("ready", async (): Promise<void> => { 
-			console.log("bot running!");
+			console.log("Bot running!");
 
 			super.setActivity(`in ${await super.getGuildsSize()} servers with ${await super.getUsersSize()} users.`);
 		});
 
 		this.client.on("message", (message: any): void => {
-			log(message);
+			try {
+				log(message);
 
-			if (message.author.bot) return;
+				if (message.author.bot) return;
 
-			// check if is a command
-			if (message.content.toLowerCase().startsWith(this.prefix)) this.onCommandExec(message);
+				// check if is a command
+				if (message.content.toLowerCase().startsWith(this.prefix)) this.onCommandExec(message);
 
-			this.onMessageIncludesExec(message);
+				this.onMessageIncludesExec(message);
+			} catch(err) {
+				console.error("Don't do that, pls!");
+			}
 		});
 
 		this.client.login(this.token);
