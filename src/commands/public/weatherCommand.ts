@@ -24,8 +24,6 @@ async function weatherCommandCallback(commandMessage: ICommandMessage): Promise<
 		countryCode: args[2]
 	};
 
-	console.log(location);
-
 	try {
 		const weatherData: any = await openWeatherGetService(location.cityName, location.stateCode, location.countryCode);
 	
