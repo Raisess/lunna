@@ -4,15 +4,21 @@ import { MessageEmbed } from "discord.js";
 
 export const pingCommand: ICommand = {
 	name:        "ping",
-	description: "Ping Lunna server",
+	description: "Ping Lunna server.",
 	callback:    pingCommandCallback
 };
 
 function pingCommandCallback(commandMessage: ICommandMessage, client: any): void {
+	const serverLatency: number = Date.now() - commandMessage.message.createdTimestamp;
+	const apiLatency:    number = Math.round(client ? client.ws.ping : 0);
+	const mediaLatency:  number = (serverLatency + apiLatency) / 2;
+
+	const color: string = mediaLatency > 100 ? "#f4090d" : (mediaLatency < 40 ? "#38f409" : "#f7ce02");
+
 	const embed: MessageEmbed = new MessageEmbed();
 
-	embed.setColor("#028cef");
-	embed.addField("🏓 | Pong!", `Latency is ${Date.now() - commandMessage.message.createdTimestamp}ms. API Latency is ${Math.round(client ? client.ws.ping : 0)}ms.`, true);
+	embed.setColor(color);
+	embed.addField("🏓 Pong!", `Latency is ${serverLatency}ms. API Latency is ${apiLatency}ms.`, true);
 
 	commandMessage.message.channel.send(embed);
 }
