@@ -47,6 +47,8 @@ export default class BotCore extends BotCoreUtils {
 
 				this.onMessageIncludesExec(message);
 			} catch(err) {
+				if (message.author.bot) return;
+
 				message.author.send("Stop sending me private messages, pls.");
 			}
 		});
