@@ -9,11 +9,11 @@ export const pingCommand: ICommand = {
 };
 
 function pingCommandCallback(commandMessage: ICommandMessage, client: any): void {
-	const serverLatency: number = Date.now() - commandMessage.message.createdTimestamp;
-	const apiLatency:    number = Math.round(client ? client.ws.ping : 0);
-	const mediaLatency:  number = (serverLatency + apiLatency) / 2;
+	const serverLatency:   number = Date.now() - commandMessage.message.createdTimestamp;
+	const apiLatency:      number = Math.round(client ? client.ws.ping : 0);
+	const averangeLatency: number = (serverLatency + apiLatency) / 2;
 
-	const color: string = mediaLatency > 100 ? "#f4090d" : (mediaLatency < 40 ? "#38f409" : "#f7ce02");
+	const color: string = averangeLatency > 100 ? "#f4090d" : (averangeLatency < 30 ? "#38f409" : "#f7ce02");
 
 	const embed: MessageEmbed = new MessageEmbed();
 
