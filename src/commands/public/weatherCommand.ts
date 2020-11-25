@@ -9,14 +9,22 @@ export const weatherCommand: ICommand = {
 	callback:    weatherCommandCallback
 };
 
-async function weatherCommandCallback(commandMessage: ICommandMessage): Promise<void> {
-	const args: Array<string> = commandMessage.args ? commandMessage.args : [];
+interface ILocation {
+	cityName:    string;
+	stateCode:   string;
+	countryCode: string;
+}
 
-	const location: any = {
-		cityName:    args[0].replace(/-/g, "%20"),
+async function weatherCommandCallback(commandMessage: ICommandMessage): Promise<void> {
+	const args: Array<string> = commandMessage.args ? commandMessage.args.join(" ").split(",") : [];
+
+	const location: ILocation = {
+		cityName:    encodeURI(args[0]),
 		stateCode:   args[1],
 		countryCode: args[2]
 	};
+
+	console.log(location);
 
 	try {
 		const weatherData: any = await openWeatherGetService(location.cityName, location.stateCode, location.countryCode);
