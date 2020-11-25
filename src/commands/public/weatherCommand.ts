@@ -31,14 +31,17 @@ async function weatherCommandCallback(commandMessage: ICommandMessage): Promise<
 
 		embed.setColor("RANDOM");
 		embed.setTitle(`🌤️  ${weatherData.name}:`);
+		embed.setThumbnail(`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`);
 		embed.setDescription(weatherData.weather[0].description);
+
 		embed.addField("🌡️ Temp:", `${convertToFar(weatherData.main.temp)}ºF | ${convertToCelsius(weatherData.main.temp)}ºC`, true);
 		embed.addField("🌡️ Feels:", `${convertToFar(weatherData.main.feels_like)}ºF | ${convertToCelsius(weatherData.main.feels_like)}ºC`, true);
 		embed.addField("💧 Humidity:", `${weatherData.main.humidity}%`, true);
 		embed.addField("☁️ Clouds:", `${weatherData.clouds.all}%`, true);
 		embed.addField("👀 Visibility:", `${weatherData.visibility / 100}%`, true);
 		embed.addField("🍃 Winds:", `${Math.round(weatherData.wind.speed)} m/s`, true);
-		embed.setFooter(`Lon: ${weatherData.coord.lon} Lat: ${weatherData.coord.lat}`);
+		
+		embed.setFooter("Powered by Open Weather");
 		embed.setTimestamp();
 
 		commandMessage.message.channel.send(embed);
