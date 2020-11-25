@@ -26,6 +26,6 @@ if (process.env.MAINTENANCE === "false") {
 		if (process.env.SERVER_URL && process.env.SERVER_URL !== "") {
 			https.get(process.env.SERVER_URL);
 		}
-	}, 5 * 60000);
+	}, 10 * 60000);
 }
 
