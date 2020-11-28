@@ -1,6 +1,6 @@
 # 🤖 Lunna BOT
 
-### Lunna is weather, image, nsfw, gif, interation and moderation bot.
+### Lunna is weather, image, gif, interation and moderation bot.
 
 #### She have cool commands, give a chance to her.
 
@@ -18,7 +18,7 @@
 
 **command**: pp | **description**: Get user pp info. 😳
 
-**command**: hentai | **description**: A NSFW hentai command, u can use only on nsfw channel. 😳😳😳
+**command**: weather (location) | **description**: Get location weather info.
 
 And more, type: **lunna help** in the chat.
 
