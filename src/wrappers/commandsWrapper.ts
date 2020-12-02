@@ -15,6 +15,7 @@ import { helpCommand } from "../commands/public/helpCommand";
 import { gifCommand } from "../commands/public/gifCommand";
 import { catCommand } from "../commands/public/catCommand";
 import { weatherCommand } from "../commands/public/weatherCommand";
+import { apodCommand } from "../commands/public/apodCommand";
 // NSFW
 //import { hentaiCommand } from "../commands/nsfw/hentaiCommand";
 import { ppCommand } from "../commands/nsfw/ppCommand";
@@ -28,7 +29,7 @@ export const commands: Array<ICommand> = [
 	// server admin
 	kickCommand,
 	banCommand,
-	// all
+	// public
 	profilPictureCommand,
 	imageCommand,
 	hugCommand,
@@ -36,6 +37,7 @@ export const commands: Array<ICommand> = [
 	gifCommand,
 	catCommand,
 	weatherCommand,
+	apodCommand,
 	// NSFW
 	//hentaiCommand,
 	ppCommand
