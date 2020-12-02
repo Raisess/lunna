@@ -13,8 +13,7 @@ export const apodCommand: ICommand = {
 async function apodCommandCallback(commandMessage: ICommandMessage): Promise<void> {
 	try { 
 		const args: string = commandMessage.args?.join(" ") || "";
-
-		const apod: any = await apodNasaGetService(args);
+		const apod: any    = await apodNasaGetService(args);
 
 		const embed: MessageEmbed = new MessageEmbed();
 
