@@ -4,7 +4,8 @@
 	"botAdmin/debugArgsCommand",
 	"botAdmin/execCommand",
 
-	"serverAdmin/kickBanCommand",
+	"serverAdmin/kickCommand",
+	"serverAdmin/banCommand",
 
 	"nsfw/ppCommand",
 	"nsfw/hentaiCommand",
