@@ -1,0 +1,21 @@
+[
+	"botAdmin/pingCommand",
+	"botAdmin/evalCommand",
+	"botAdmin/debugArgsCommand",
+	"botAdmin/execCommand",
+
+	"serverAdmin/kickBanCommand",
+
+	"nsfw/ppCommand",
+	"nsfw/hentaiCommand",
+
+	"public/profilePictureCommand",
+	"public/imageCommand",
+	"public/hugCommand",
+	"public/helpCommand",
+	"public/gifCommand",
+	"public/catCommand",
+	"public/weatherCommand",
+	"public/apodCommand"
+]
+

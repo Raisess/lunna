@@ -1,45 +1,19 @@
 import { ICommand } from "../interfaces/ICommand";
 
-// bot admin
-import { pingCommand } from "../commands/botAdmin/pingCommand";
-import { evalCommand } from "../commands/botAdmin/evalCommand";
-import { debugArgsCommand } from "../commands/botAdmin/debugArgsCommand";
-import { execCommand } from "../commands/botAdmin/execCommand";
-// server admin
-import { kickCommand, banCommand } from "../commands/serverAdmin/kickBanCommand";
-// public
-import { profilPictureCommand } from "../commands/public/profilePictureCommand";
-import { imageCommand } from "../commands/public/imageCommand";
-import { hugCommand } from "../commands/public/hugCommand";
-import { helpCommand } from "../commands/public/helpCommand";
-import { gifCommand } from "../commands/public/gifCommand";
-import { catCommand } from "../commands/public/catCommand";
-import { weatherCommand } from "../commands/public/weatherCommand";
-import { apodCommand } from "../commands/public/apodCommand";
-// NSFW
-//import { hentaiCommand } from "../commands/nsfw/hentaiCommand";
-import { ppCommand } from "../commands/nsfw/ppCommand";
+import commandPaths from "../jsonData/commandPaths.json";
 
-export const commands: Array<ICommand> = [
-	// bot admin
-	pingCommand,
-	evalCommand,
-	debugArgsCommand,
-	execCommand,
-	// server admin
-	kickCommand,
-	banCommand,
-	// public
-	profilPictureCommand,
-	imageCommand,
-	hugCommand,
-	helpCommand,
-	gifCommand,
-	catCommand,
-	weatherCommand,
-	apodCommand,
-	// NSFW
-	//hentaiCommand,
-	ppCommand
-];
+export let commands: Array<ICommand> = [];
+
+commandPaths.map((path: string) => {
+	const command: ICommand = require(`../commands/${path}`);
+
+	commands.push({
+		name:        Object.values(command)[0].name,
+		description: Object.values(command)[0].description,
+		callback:    Object.values(command)[0].callback,
+		options:     Object.values(command)[0].options
+	});
+
+	return command;
+});
 
