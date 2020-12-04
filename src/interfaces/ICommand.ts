@@ -18,5 +18,6 @@ export interface ICommandCallback {
 export interface ICommandOptions {
 	channel?: Array<string>;
 	canUse?:  Array<string>;
+	nsfw?:    boolean;
 }
 

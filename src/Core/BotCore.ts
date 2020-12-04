@@ -83,10 +83,17 @@ export default class BotCore extends BotCoreUtils {
 							command.callback({ message, member, args: commandArgs }, this.client);
 							return;
 						}
+					} else if (command.options.nsfw) {
+						if (message.channel.nsfw) {
+							command.callback({ message, member, args: commandArgs }, this.client);
+							return;
+						}
+
+						message.channel.send("This channel is not nsfw!");
 					}
 
 					if (command.options.channel) {
-						message.reply(`you only can use that command in a channel named: ${command.options.channel.join(" or ")} 😳 😳 😳`);
+						message.reply(`You only can use that command in a channel named: ${command.options.channel.join(" or ")} 😳 😳 😳`);
 					}
 
 					message.react("🚫");
