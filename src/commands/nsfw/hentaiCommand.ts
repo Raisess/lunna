@@ -6,19 +6,23 @@ import hanimeGetService from "../../services/imageServices/hanimeGetService";
 export const hentaiCommand: ICommand = {
 	name:        "hentai",
 	description: "A NSFW hentai command, u can use only on nsfw channel.",
-	callback:    hentaiCommandCallback,
-	options:     { channel: ["nsfw"] }
+	callback:    hentaiCommandCallback
 };
 
 async function hentaiCommandCallback(commandMessage: ICommandMessage): Promise<void> {
-	const image: string = await hanimeGetService();
+	if (commandMessage.message.channel.nsfw) {
+		const image: string = await hanimeGetService();
 
-	const embed: MessageEmbed = new MessageEmbed();
+		const embed: MessageEmbed = new MessageEmbed();
 
-	embed.setColor("RANDOM");
-	embed.setTitle("NSFW Hentai:");
-	embed.setImage(image);
+		embed.setColor("RANDOM");
+		embed.setTitle("NSFW Hentai:");
+		embed.setImage(image);
 
-	commandMessage.message.channel.send(embed);
+		commandMessage.message.channel.send(embed);
+	} else {
+		commandMessage.message.react("🚫");
+		commandMessage.message.channel.send("Command avaible only on nsfw channels!");
+	}
 }
 
