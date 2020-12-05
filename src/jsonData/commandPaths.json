@@ -17,6 +17,7 @@
 	"public/gifCommand",
 	"public/catCommand",
 	"public/weatherCommand",
-	"public/apodCommand"
+	"public/apodCommand",
+	"public/currencyCommand"
 ]
 
