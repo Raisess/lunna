@@ -2,7 +2,7 @@ import "dotenv/config";
 
 import { Client } from "discord.js";
 import https from "https";
-import app from "./server";
+import server from "./server";
 
 import BotCore from "./Core/BotCore";
 import { commands } from "./wrappers/commandsWrapper";
@@ -19,7 +19,7 @@ if (process.env.MAINTENANCE === "false") {
 		bot.onMessageIncludes(specialWord.words, specialWord.callback);
 	}
 
-	app.listen(process.env.PORT || 1939);
+	server.listen(process.env.PORT || 1939);
 
 	// keep server alive
 	setInterval(() => {

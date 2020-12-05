@@ -1,10 +1,10 @@
 import express, { Application } from "express";
 import cors from "cors";
 
-const app: Application = express();
+const server: Application = express();
 
-app.use(cors());
-app.get("/", (req, res) => res.json({ log: "lunna server yaya" }));
+server.use(cors());
+server.get("/", (req, res) => res.json({ log: "lunna server yaya" }));
 
-export default app;
+export default server;
 
