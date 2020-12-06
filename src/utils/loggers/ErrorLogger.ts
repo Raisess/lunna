@@ -14,7 +14,7 @@ export default class ErrorLogger {
 		this.message = message;
 		this.reason  = reason;
 
-		this.log();
+		if (process.env.ERROR_LOG === "true") this.log();
 	}
 
 	private log(): void {
