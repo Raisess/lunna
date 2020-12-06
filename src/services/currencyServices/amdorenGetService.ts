@@ -4,8 +4,6 @@ export default async function amdorenGetService(from: string, to: string, amount
 	const req: any = await fetch(`https://www.amdoren.com/api/currency.php?api_key=${process.env.AMDOREN_API_KEY}&from=${from}&to=${to}${amount ? `&amount=${amount}` : ""}`);
 	const res: any = await req.json();
 
-	console.log(res);
-
 	return res;
 }
 
