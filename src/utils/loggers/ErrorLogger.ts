@@ -18,13 +18,13 @@ export default class ErrorLogger {
 	}
 
 	private log(): void {
-		console.error("\n");
+		console.error("");
 		console.error("Oops... An error ocurred!");
 		console.error("-----> Error:", this.code);
 		console.error("-----> Message:", this.message);
 		this.reason ? console.error("-----> Reason:", this.reason) : null;
 		console.error("-----> Timestamp:", this.timestamp);
-		console.error("\n");
+		console.error("");
 	}
 }
 
