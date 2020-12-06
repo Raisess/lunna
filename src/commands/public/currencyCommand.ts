@@ -3,6 +3,8 @@ import { ICommand, ICommandMessage } from "../../interfaces/ICommand";
 import { MessageEmbed } from "discord.js";
 import amdorenGetService from "../../services/currencyServices/amdorenGetService";
 
+import ErrorLogger from "../../utils/loggers/ErrorLogger";
+
 export const currencyCommand: ICommand = {
 	name:        "currency",
 	description: "A currency command ayaya, try lunna currency eur btc",
@@ -24,6 +26,12 @@ async function currencyCommandCallback(commandMessage: ICommandMessage): Promise
 	} else {
 		embed.setTitle(`Error: ${currency.error}`);
 		embed.addField("Message:", currency.error_message);
+
+		new ErrorLogger({
+			code:    501,
+			message: "Can't fetch currency API.",
+			reason:  currency.error_message
+		});
 	}
 
 	embed.setFooter("Powered by Amdoren");
