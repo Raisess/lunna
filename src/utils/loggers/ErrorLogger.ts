@@ -14,10 +14,10 @@ export default class ErrorLogger {
 		this.message = message;
 		this.reason  = reason;
 
-		if (process.env.ERROR_LOG === "true") this.log();
+		if (process.env.ERROR_LOG === "true") this.print();
 	}
 
-	private log(): void {
+	private print(): void {
 		console.error("");
 		console.error("Oops... An error ocurred!");
 		console.error("-----> Error:", this.code);
