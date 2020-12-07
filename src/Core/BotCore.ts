@@ -1,14 +1,16 @@
 import { Client } from "discord.js";
 
-import BotCoreUtils from "./BotCoreUtils";
-
+//interfaces
 import { ICommand, ICommandCallback, ICommandOptions } from "../interfaces/ICommand";
 import { ISpecialWord, ISpecialWordCallback } from "../interfaces/ISpecialWord";
 
-import log from "../utils/messageLog";
-
+// core utils
+import BotCoreUtils from "./BotCoreUtils";
+// validators
 import channelValidator from "./validators/channelValidator";
 import canUseValidator from "./validators/canUseValidator";
+// loggers
+import MessageLogger from "../utils/loggers/MessageLogger";
 
 export default class BotCore extends BotCoreUtils {
 	private client: Client;
@@ -38,7 +40,7 @@ export default class BotCore extends BotCoreUtils {
 
 		this.client.on("message", (message: any): void => {
 			try {
-				log(message);
+				new MessageLogger(message);
 
 				if (message.author.bot) return;
 
