@@ -1,8 +1,9 @@
 import { ICommand, ICommandMessage } from "../../interfaces/ICommand";
 
 import { MessageEmbed } from "discord.js";
-
 import apodNasaGetService from "../../services/imageServices/apodNasaGetService";
+
+import ErrorLogger from "../../utils/loggers/ErrorLogger";
 
 export const apodCommand: ICommand = {
 	name:        "apod",
@@ -27,7 +28,11 @@ async function apodCommandCallback(commandMessage: ICommandMessage): Promise<voi
 
 		commandMessage.message.channel.send(embed);
 	} catch(err) {
-		console.error(err.message);
+		new ErrorLogger({
+			code:    501,
+			message: "Fetch fail.",
+			reason:  err.message
+		});
 
 		commandMessage.message.react("⚠️");
 	}
